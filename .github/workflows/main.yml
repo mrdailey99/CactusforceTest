@@ -96,11 +96,11 @@ jobs:
         - name: Compile Provar Project
           run: sfdx provar:compile -p Cactusforce2021/provardx/provardx-properties.json
 
-        - name: Reload Metadata Cache
-          run: sfdx provar:metadatacache -m 'Reload' -c '.provarCaches' -p Cactusforce2021/provardx/provardx-properties.json
+        # - name: Reload Metadata Cache
+        #   run: sfdx provar:metadatacache -m 'Reload' -c '.provarCaches' -p Cactusforce2021/provardx/provardx-properties.json
 
         - name: Run Provar Tests
-          run: echo y | xvfb-run sfdx provar:runtests -m 'Reuse' -c '.provarCaches' -p Cactusforce2021/provardx/provardx-properties.json 
+          run: echo y | xvfb-run sfdx provar:runtests -p Cactusforce2021/provardx/provardx-properties.json 
 
         - name: Delete Scratch Org
           run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
