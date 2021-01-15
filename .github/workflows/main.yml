@@ -48,7 +48,7 @@ jobs:
         - uses: actions/setup-node@v2.1.2  
         - uses: sfdx-actions/setup-sfdx@v1
           with:
-            sfdx-auth-url: force://PlatformCLI::5Aep861NiuQwGoMdl5hGtfykpntgEERUZ.8MAKsPIw_SwXf.EXNL4LEnrA866gd8qpFiFcZGxnydLb4i19Birhc@brave-otter-7uycux-dev-ed.my.salesforce.com
+            sfdx-auth-url: force://PlatformCLI::5Aep861TSESvWeug_z6HMXZWfw4YeUvRYilVKmrBE96viBoZhweRNVCx5Cmr1CJVoZS_VooNQ.szjNO_gtB9Yrw@provar.my.salesforce.com
 
         - name: Setup NPM
           run: npm install
@@ -67,7 +67,6 @@ jobs:
           run: |
             echo "Unzip Provar ANT Files"
             unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
-            cp -r $GITHUB_WORKSPACE/Cactusforce2021/provardx ${{ env.provar_home }}/provardx
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
             
@@ -79,6 +78,9 @@ jobs:
         - name: Insert Secrets Password
           run: sed -i "s|ProvarSecretsPassword|Cactusforce2021|" $GITHUB_WORKSPACE/Cactusforce2021/provardx/provardx-properties.json
 
+        - name: Replace Workspace Path
+          run: sed -i "s|GITHUBWORKSPACE|$GITHUB_WORKSPACE|" $GITHUB_WORKSPACE/Cactusforce2021/provardx/provardx-properties.json
+          
         - name: Create Scratch Org 
           run: |
             sfdx force:org:create -f $GITHUB_WORKSPACE/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}

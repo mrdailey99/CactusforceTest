@@ -3,9 +3,9 @@
    [
      {"connection": "Admin", "username": "ProvarDX"}
    ],
-   "provarHome":"/home/runner/work/CactusforceTest/CactusforceTest/ProvarHome",
-   "projectPath":"/home/runner/work/CactusforceTest/CactusforceTest/Cactusforce2021",
-   "resultsPath":"/home/runner/work/CactusforceTest/CactusforceTest/Cactusforce2021/ANT/Results",
+   "provarHome":"GITHUBWORKSPACE/ProvarHome",
+   "projectPath":"GITHUBWORKSPACE/Cactusforce2021",
+   "resultsPath":"GITHUBWORKSPACE/Cactusforce2021/ANT/Results",
    "resultsPathDisposition":"Replace", 
    "testOutputLevel":"WARNING",
    "pluginOutputlevel":"WARNING",
@@ -15,7 +15,7 @@
    "connectionRefreshType":"Reuse",
    "metadata":{
       "metadataLevel":"Reuse",
-      "cachePath":"/home/runner/work/CactusforceTest/CactusforceTest/.provarCaches"
+      "cachePath":"GITHUBWORKSPACE/.provarCaches"
    },
    "testprojectSecrets": "Cactusforce2021", 
    "environment":{
