@@ -48,7 +48,7 @@ jobs:
         - uses: actions/setup-node@v2.1.2  
         - uses: sfdx-actions/setup-sfdx@v1
           with:
-            sfdx-auth-url: force://PlatformCLI::5Aep8614XGwzVzzTO6nP_8WU6svyKQeUHGYYS6MLdR9r2Yj_x2tgTa172zgV8kssbpgP_kCWUTq.a0nHP4Dk7xW@devops-center-amber-0063.my.salesforce.com
+            sfdx-auth-url: force://PlatformCLI::5Aep861NiuQwGoMdl5hGtfykpntgEERUZ.8MAKsPIw_SwXf.EXNL4LEnrA866gd8qpFiFcZGxnydLb4i19Birhc@brave-otter-7uycux-dev-ed.my.salesforce.com
 
         - name: Setup NPM
           run: npm install
