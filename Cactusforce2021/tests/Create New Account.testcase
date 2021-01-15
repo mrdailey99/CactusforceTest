@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -41,44 +41,13 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: PurchasedWarranty">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: NumberOfEmployees">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
             <namedValues mutable="Mutable">
               <namedValue name="valuePath">
-                <value class="value" valueClass="string">PurchaseDate</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="funcCall" id="DateAdd">
-                  <argument id="date">
-                    <value class="variable">
-                      <path element="TODAY"/>
-                    </value>
-                  </argument>
-                  <argument id="amount">
-                    <value class="value" valueClass="decimal">14</value>
-                  </argument>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">Options</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="value" valueClass="string">A</value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">InstallNotes</value>
+                <value class="value" valueClass="string">AccountName</value>
               </namedValue>
               <namedValue name="value">
                 <value class="compound">
@@ -98,10 +67,56 @@
             </namedValues>
             <namedValues mutable="Mutable">
               <namedValue name="valuePath">
-                <value class="value" valueClass="string">PurchasedWarranty</value>
+                <value class="value" valueClass="string">Phone</value>
               </namedValue>
               <namedValue name="value">
-                <value class="value" valueClass="boolean">true</value>
+                <value class="compound">
+                  <parts>
+                    <funcCall id="UniqueId">
+                      <argument id="length">
+                        <value class="value" valueClass="decimal">3</value>
+                      </argument>
+                      <argument id="format">
+                        <value class="variable">
+                          <path element="NUMERIC"/>
+                        </value>
+                      </argument>
+                    </funcCall>
+                    <value valueClass="string">-</value>
+                    <funcCall id="UniqueId">
+                      <argument id="length">
+                        <value class="value" valueClass="decimal">3</value>
+                      </argument>
+                      <argument id="format">
+                        <value class="variable">
+                          <path element="NUMERIC"/>
+                        </value>
+                      </argument>
+                    </funcCall>
+                    <value valueClass="string">-</value>
+                    <funcCall id="UniqueId">
+                      <argument id="length">
+                        <value class="value" valueClass="decimal">4</value>
+                      </argument>
+                      <argument id="format">
+                        <value class="variable">
+                          <path element="NUMERIC"/>
+                        </value>
+                      </argument>
+                    </funcCall>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">NumberOfEmployees</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">100</value>
               </namedValue>
               <namedValue name="valueScope">
                 <value class="value" valueClass="string">Test</value>
@@ -111,13 +126,13 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Widget__c=&gt;WidgetId">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="5" title="Create Object: Account=&gt;AccountId">
       <arguments>
         <argument id="objectType">
-          <value class="value" valueClass="string">Widget__c</value>
+          <value class="value" valueClass="string">Account</value>
         </argument>
         <argument id="resultIdName">
-          <value class="value" valueClass="string">WidgetId</value>
+          <value class="value" valueClass="string">AccountId</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -126,52 +141,46 @@
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
-        <argument id="Options__c">
+        <argument id="Name">
           <value class="variable">
-            <path element="Options"/>
+            <path element="AccountName"/>
           </value>
         </argument>
-        <argument id="Purchase_Date__c">
+        <argument id="Phone">
           <value class="variable">
-            <path element="PurchaseDate"/>
+            <path element="Phone"/>
           </value>
         </argument>
-        <argument id="Purchased_Warranty__c">
+        <argument id="NumberOfEmployees">
           <value class="variable">
-            <path element="PurchasedWarranty"/>
-          </value>
-        </argument>
-        <argument id="Install_Notes__c">
-          <value class="variable">
-            <path element="InstallNotes"/>
+            <path element="NumberOfEmployees"/>
           </value>
         </argument>
       </arguments>
       <parameterGeneratorProperties>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
-        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Widget__c</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
       </parameterGeneratorProperties>
       <generatedParameters>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Options__c" name="Options__c" title="Options__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Purchase_Date__c" name="Purchase_Date__c" title="Purchase_Date__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Purchased_Warranty__c" name="Purchased_Warranty__c" title="Purchased_Warranty__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Install_Notes__c" name="Install_Notes__c" title="Install_Notes__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Name"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=NumberOfEmployees" name="NumberOfEmployees" title="NumberOfEmployees"/>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="3" title="Read Object: Widget__c = {WidgetId}">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="7" title="Read Object: Account = {AccountId}">
       <arguments>
         <argument id="objectType">
-          <value class="value" valueClass="string">Widget__c</value>
+          <value class="value" valueClass="string">Account</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">WidgetRead</value>
+          <value class="value" valueClass="string">AccountRead</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="objectId">
           <value class="variable">
-            <path element="WidgetId"/>
+            <path element="AccountId"/>
           </value>
         </argument>
         <argument id="resultScope">
@@ -179,43 +188,30 @@
         </argument>
       </arguments>
       <resultAssertions>
-        <resultAssertion resultName="Install_Notes__c" title="Check Install_Notes__c">
+        <resultAssertion resultName="Name" title="Check Name">
           <expected class="variable">
-            <path element="InstallNotes"/>
+            <path element="AccountName"/>
           </expected>
         </resultAssertion>
-        <resultAssertion resultName="Purchase_Date__c" title="Check Purchase_Date__c">
-          <expected class="funcCall" id="DateParse">
-            <argument id="date">
-              <value class="variable">
-                <path element="PurchaseDate"/>
-              </value>
-            </argument>
-            <argument id="inputFormat">
-              <value class="value" valueClass="string">YYYY-MM-dd</value>
-            </argument>
+        <resultAssertion resultName="Phone" title="Check Phone">
+          <expected class="variable">
+            <path element="Phone"/>
           </expected>
         </resultAssertion>
-        <resultAssertion resultName="Purchased_Warranty__c" title="Check Purchased_Warranty__c">
+        <resultAssertion resultName="NumberOfEmployees" title="Check NumberOfEmployees">
           <expected class="variable">
-            <path element="PurchasedWarranty"/>
-          </expected>
-        </resultAssertion>
-        <resultAssertion resultName="Options__c" title="Check Options__c">
-          <expected class="variable">
-            <path element="Options"/>
+            <path element="NumberOfEmployees"/>
           </expected>
         </resultAssertion>
       </resultAssertions>
       <parameterGeneratorProperties>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
-        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Widget__c</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
       </parameterGeneratorProperties>
       <generatedParameters>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Install_Notes__c" name="Install_Notes__c" title="Install Notes"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Purchase_Date__c" name="Purchase_Date__c" title="Purchase Date"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Purchased_Warranty__c" name="Purchased_Warranty__c" title="Purchased Warranty?"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Options__c" name="Options__c" title="Options"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Account Name"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=NumberOfEmployees" name="NumberOfEmployees" title="Employees"/>
       </generatedParameters>
     </apiCall>
   </steps>

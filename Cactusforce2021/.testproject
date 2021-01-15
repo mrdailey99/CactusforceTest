@@ -12,8 +12,9 @@
     <connectionClass name="sf">
       <connections>
         <connection name="Admin">
+          <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="92790aa2-8e20-4036-95c7-cb50168040f2" url="sf:user=michael.dailey@test.com.saguaro;password={password};environment=SANDBOX;lightningMode=true"/>
+            <connectionUrl secureStorageNodeId="92790aa2-8e20-4036-95c7-cb50168040f2" url="sf:user=michael.dailey@provartesting.com.trialdev;password={password};environment=SANDBOX;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
