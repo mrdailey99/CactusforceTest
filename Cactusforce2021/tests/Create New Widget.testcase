@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="1">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: PurchasedWarranty">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">PurchaseDate</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="DateAdd">
+                  <argument id="date">
+                    <value class="variable">
+                      <path element="TODAY"/>
+                    </value>
+                  </argument>
+                  <argument id="amount">
+                    <value class="value" valueClass="decimal">14</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Options</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">A</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">InstallNotes</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="compound">
+                  <parts>
+                    <value valueClass="string">Automation</value>
+                    <funcCall id="UniqueId">
+                      <argument id="length">
+                        <value class="value" valueClass="decimal">5</value>
+                      </argument>
+                    </funcCall>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">PurchasedWarranty</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="boolean">true</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Widget__c=&gt;WidgetId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Widget__c</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">WidgetId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Options__c">
+          <value class="variable">
+            <path element="Options"/>
+          </value>
+        </argument>
+        <argument id="Purchase_Date__c">
+          <value class="variable">
+            <path element="PurchaseDate"/>
+          </value>
+        </argument>
+        <argument id="Purchased_Warranty__c">
+          <value class="variable">
+            <path element="PurchasedWarranty"/>
+          </value>
+        </argument>
+        <argument id="Install_Notes__c">
+          <value class="variable">
+            <path element="InstallNotes"/>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Widget__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Options__c" name="Options__c" title="Options__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Purchase_Date__c" name="Purchase_Date__c" title="Purchase_Date__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Purchased_Warranty__c" name="Purchased_Warranty__c" title="Purchased_Warranty__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Install_Notes__c" name="Install_Notes__c" title="Install_Notes__c"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="3" title="Read Object: Widget__c = {WidgetId}">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Widget__c</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">WidgetRead</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="WidgetId"/>
+          </value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <resultAssertions>
+        <resultAssertion resultName="Install_Notes__c" title="Check Install_Notes__c">
+          <expected class="variable">
+            <path element="InstallNotes"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Purchase_Date__c" title="Check Purchase_Date__c">
+          <expected class="funcCall" id="DateParse">
+            <argument id="date">
+              <value class="variable">
+                <path element="PurchaseDate"/>
+              </value>
+            </argument>
+            <argument id="inputFormat">
+              <value class="value" valueClass="string">YYYY-MM-dd</value>
+            </argument>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Purchased_Warranty__c" title="Check Purchased_Warranty__c">
+          <expected class="variable">
+            <path element="PurchasedWarranty"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Options__c" title="Check Options__c">
+          <expected class="variable">
+            <path element="Options"/>
+          </expected>
+        </resultAssertion>
+      </resultAssertions>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Widget__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Install_Notes__c" name="Install_Notes__c" title="Install Notes"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Purchase_Date__c" name="Purchase_Date__c" title="Purchase Date"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Purchased_Warranty__c" name="Purchased_Warranty__c" title="Purchased Warranty?"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Widget__c&amp;field=Options__c" name="Options__c" title="Options"/>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+</testCase>
